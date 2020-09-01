@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>
+            Detalhe da Nota
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list lines="full">
+        <form [formGroup]="ionicForm" (ngSubmit)="cadNota()" novalidate>
+            <ion-item>
+                <ion-label position="floating">Titulo</ion-label>
+                <ion-input formControlName="titulo" type="text" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Descrição</ion-label>
+                <ion-input formControlName="descricao" type="text" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Localização</ion-label>
+                <ion-input formControlName="localizacao" type="text" required>
+                </ion-input>
+            </ion-item>
+
+
+            
+            <ion-row *ngIf="isVisualizacao === false">
+                <ion-col>
+                    <ion-button type="submit" color="primary" shape="full" expand="block">
+                        Cadastrar
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </form>
+    </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+     <ion-title class="titleHeader">Notas</ion-title>
+     <ion-buttons slot="end" (click)="addNotas()">
+        <ion-icon name="add" class="fontIconAdd"></ion-icon>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row wrap>
+    <ion-toolbar>
+      <ion-row>
+        <ion-col col-12>
+          <ion-searchbar placeholder="Buscar Notas"  [(ngModel)]="filtroCreateString" (ionChange)="filterItems($event)" (ionBlur)="clearfilterCreate($event)"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-row>
+
+    
+    <ion-item-sliding #item *ngFor="let itemNotas of resultListNotas" class="itemListPesquisa">
+      <ion-item (click)="visualizacaoNotas(itemNotas)">
+        <ion-col col-12>{{ itemNotas.Titulo }}</ion-col>
+      </ion-item>
+    </ion-item-sliding>
+  
+</ion-content>
